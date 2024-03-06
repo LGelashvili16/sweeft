@@ -1,0 +1,34 @@
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  width: 90vw;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.image {
+  max-width: 100%;
+  max-height: 90%;
+}
+
+.image img {
+  max-width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.statistics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.statistics p {
+  font-size: 1.1rem;
+}
+.statistics span {
+  color: var(--primary-color);
+}

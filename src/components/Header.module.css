@@ -1,0 +1,61 @@
+.header {
+  border-bottom: 1px solid var(--primary-color);
+  padding-block: 1rem;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+.logo h1 {
+  font-size: 2rem;
+  background: linear-gradient(90deg, #3023e6, #8762ec);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.header-wrapper nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-wrapper nav ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  list-style: none;
+}
+
+.header-wrapper nav ul li {
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: color 0.1s;
+}
+
+.header-wrapper nav ul li:hover {
+  color: var(--secondary-color);
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+
+.active {
+  color: var(--primary-color);
+}
+
+@media (max-width: 480px) {
+  .header-wrapper nav ul {
+    gap: 15px;
+  }
+}

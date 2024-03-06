@@ -1,0 +1,37 @@
+.primary {
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+  font-family: 'Noto Sans Georgian';
+  font-size: 1rem;
+
+  border: 1px solid #fff;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: color 0.2s, border 0.2s, background-color 0.2s;
+}
+
+.primary:hover {
+  text-decoration: none;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.secondary {
+  background-color: var(--main-text-color);
+  font-family: 'Noto Sans Georgian';
+  font-size: 0.9rem;
+
+  border: 1px solid var(--main-text-color);
+  border-radius: 3px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  transition: color 0.2s, border 0.2s, background 0.2s;
+}
+
+.secondary:hover {
+  background-color: transparent;
+  color: var(--main-text-color);
+  border: 1px solid var(--main-text-color);
+}
