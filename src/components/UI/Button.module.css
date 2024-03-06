@@ -19,7 +19,8 @@
 }
 
 .secondary {
-  background-color: var(--main-text-color);
+  background-color: #ff4400;
+  color: #fff;
   font-family: 'Noto Sans Georgian';
   font-size: 0.9rem;
 
@@ -27,11 +28,20 @@
   border-radius: 3px;
   padding: 0.4rem 0.6rem;
   cursor: pointer;
-  transition: color 0.2s, border 0.2s, background 0.2s;
+  transition: color 0.2s, border 0.2s, background-color 0.2s;
 }
 
 .secondary:hover {
-  background-color: transparent;
+  background-color: #802200;
   color: var(--main-text-color);
   border: 1px solid var(--main-text-color);
+}
+
+@media (max-width: 768px) {
+  .secondary {
+    font-size: 0.8rem;
+    border: 1px solid var(--main-text-color);
+    border-radius: 3px;
+    padding: 0.4rem 0.6rem;
+  }
 }

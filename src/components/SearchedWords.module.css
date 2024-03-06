@@ -6,7 +6,7 @@
 
 .terms-wrapper button {
   align-self: flex-end;
-  transition: transform 0.2s background-color 0.2s;
+  transition: transform 0.2s, background-color 0.2s;
 }
 .terms-wrapper button:active {
   align-self: flex-end;
@@ -44,4 +44,16 @@
   transform: scale(0.9);
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .terms {
+    gap: 10px;
+    padding: 0.8rem;
+  }
+
+  .terms input {
+    padding: 5px 15px;
+    font-size: 0.9rem;
+  }
 }

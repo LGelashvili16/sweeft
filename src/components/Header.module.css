@@ -54,8 +54,20 @@
   color: var(--primary-color);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .header {
+    padding-block: 0.7rem;
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+
   .header-wrapper nav ul {
     gap: 15px;
+  }
+
+  .header-wrapper nav ul li {
+    font-size: 0.9rem;
   }
 }

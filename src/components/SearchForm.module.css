@@ -31,3 +31,18 @@
 .form input:focus {
   outline: 2px solid var(--secondary-color);
 }
+
+@media (max-width: 768px) {
+  .form div {
+    gap: 10px;
+  }
+
+  .form label {
+    font-size: 1rem;
+  }
+
+  .form input {
+    padding: 5px 10px;
+    font-size: 1.1rem;
+  }
+}

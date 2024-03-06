@@ -38,3 +38,17 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 768px) {
+  .load-ring {
+    width: 60px;
+    height: 60px;
+  }
+  .load-ring div {
+    width: 44px;
+    height: 44px;
+    border: 7px solid var(--primary-color);
+    border-radius: 50%;
+    border-color: var(--primary-color) transparent transparent transparent;
+  }
+}

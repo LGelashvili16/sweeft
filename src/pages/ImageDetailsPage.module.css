@@ -32,3 +32,23 @@
 .statistics span {
   color: var(--primary-color);
 }
+
+@media (max-width: 768px) {
+  .modal-content {
+    gap: 1rem;
+    padding: 1rem;
+    width: 70vw;
+    height: 70vh;
+  }
+  .image {
+    max-width: 80%;
+    max-height: 70%;
+  }
+  .statistics {
+    gap: 20px;
+  }
+
+  .statistics p {
+    font-size: 0.9rem;
+  }
+}

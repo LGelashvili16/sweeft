@@ -35,3 +35,12 @@
     transform: scale(1);
   }
 }
+
+@media (max-width: 768px) {
+  .modal {
+    position: fixed;
+    top: 5vh;
+    left: 12vw;
+    max-height: 70vh;
+  }
+}

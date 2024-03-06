@@ -24,3 +24,13 @@
   align-items: start;
   gap: 15px;
 }
+
+@media (max-width: 768px) {
+  .photos-wrapper {
+    margin-top: 3dvh;
+    gap: 20px;
+  }
+  .photos-wrapper h2 {
+    font-size: 1.1rem;
+  }
+}
