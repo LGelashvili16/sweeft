@@ -35,3 +35,10 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 768px) {
+  .loader {
+    top: 40dvh;
+    max-width: 85%;
+  }
+}

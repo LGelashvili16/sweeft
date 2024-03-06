@@ -77,7 +77,6 @@ const TopPhotosGallery: React.FC = () => {
   return (
     <div className={classes['photos-wrapper']}>
       <h2>პოპულარული ტოპ 20 სურათი</h2>
-
       {content}
     </div>
   );
