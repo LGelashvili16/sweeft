@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
+  color-scheme: dark;
   font-family: 'Noto Sans Georgian', Inter, system-ui, Avenir, Helvetica, Arial,
     sans-serif;
   --primary-color: #5754ff;

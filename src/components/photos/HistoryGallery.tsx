@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { Fragment, useCallback, useRef } from 'react';
 import classes from './HistoryGallery.module.css';
 import Photo from './Photo';
 import { PhotoType } from '../../models/models';
@@ -20,18 +20,15 @@ const PhotosGallery: React.FC<{
 
   const lastElementObserver = useRef<IntersectionObserver>();
   const lastElementRef = useCallback(
-    (node: HTMLDivElement) => {
+    (node: HTMLAnchorElement) => {
       if (isLoading) return;
       if (lastElementObserver.current) lastElementObserver.current.disconnect();
 
-      lastElementObserver.current = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            incrementPage();
-          }
-        },
-        { rootMargin: '100px', threshold: 0.2 }
-      );
+      lastElementObserver.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          incrementPage();
+        }
+      });
 
       if (node) lastElementObserver.current.observe(node);
     },
@@ -65,15 +62,19 @@ const PhotosGallery: React.FC<{
           {column1.map((photo: PhotoType, index) => {
             if (column1.length === index + 1) {
               return (
-                <Link key={photo.id} to={`photo/${photo.id}`}>
-                  <Photo photo={photo} ref={lastElementRef} />
-                </Link>
+                <Fragment key={photo.id}>
+                  <Link to={`photo/${photo.id}`} ref={lastElementRef}>
+                    <Photo photo={photo} />
+                  </Link>
+                </Fragment>
               );
             } else {
               return (
-                <Link key={photo.id} to={`photo/${photo.id}`}>
-                  <Photo photo={photo} />
-                </Link>
+                <Fragment key={photo.id}>
+                  <Link to={`photo/${photo.id}`}>
+                    <Photo photo={photo} />
+                  </Link>
+                </Fragment>
               );
             }
           })}
@@ -82,9 +83,11 @@ const PhotosGallery: React.FC<{
         <div className={classes['photos-column']}>
           {column2.map((photo: PhotoType) => {
             return (
-              <Link key={photo.id} to={`photo/${photo.id}`}>
-                <Photo photo={photo} />
-              </Link>
+              <Fragment key={photo.id}>
+                <Link to={`photo/${photo.id}`}>
+                  <Photo photo={photo} />
+                </Link>
+              </Fragment>
             );
           })}
         </div>
@@ -92,9 +95,11 @@ const PhotosGallery: React.FC<{
         <div className={classes['photos-column']}>
           {column3.map((photo: PhotoType) => {
             return (
-              <Link key={photo.id} to={`photo/${photo.id}`}>
-                <Photo photo={photo} />
-              </Link>
+              <Fragment key={photo.id}>
+                <Link to={`photo/${photo.id}`}>
+                  <Photo photo={photo} />
+                </Link>
+              </Fragment>
             );
           })}
         </div>

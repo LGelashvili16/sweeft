@@ -1,15 +1,12 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import classes from './Photo.module.css';
 import { PhotoType } from '../../models/models';
 
-const Photo: React.ForwardRefRenderFunction<
-  HTMLDivElement,
-  {
-    photo: PhotoType;
-  }
-> = (props, ref) => {
+const Photo: React.FC<{
+  photo: PhotoType;
+}> = (props) => {
   return (
-    <div className={classes.photo} ref={ref}>
+    <div className={classes.photo}>
       <div className={classes.img}>
         <img src={props.photo.urls.regular} alt={props.photo.alt_description} />
       </div>
@@ -17,4 +14,4 @@ const Photo: React.ForwardRefRenderFunction<
   );
 };
 
-export default forwardRef(Photo);
+export default Photo;

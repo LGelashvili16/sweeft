@@ -7,31 +7,27 @@ import { Link } from 'react-router-dom';
 import Photo from './Photo';
 import classes from './SearchedGallery.module.css';
 import { PhotoType } from '../../models/models';
-import { useCallback, useRef } from 'react';
+import { Fragment, useCallback, useRef } from 'react';
 import useFetchPhotos from '../../hooks/useFetchPhotos';
 
 const SearchedGallery = () => {
   const currentTerm = useStore(useTerms, (state) => state.currentTerm);
   const page = useStore(useTerms, (state) => state.page);
   const incrementPage = useStore(useTerms, (state) => state.incrementPage);
-
   const { column1, column2, column3, isLoading, isError, error } =
     useFetchPhotos(currentTerm, page);
 
   const lastElementObserver = useRef<IntersectionObserver>();
   const lastElementRef = useCallback(
-    (node: HTMLDivElement) => {
+    (node: HTMLAnchorElement) => {
       if (isLoading) return;
       if (lastElementObserver.current) lastElementObserver.current.disconnect();
 
-      lastElementObserver.current = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            incrementPage();
-          }
-        },
-        { rootMargin: '100px', threshold: 0.2 }
-      );
+      lastElementObserver.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && window.scrollY > 0) {
+          incrementPage();
+        }
+      });
 
       if (node) lastElementObserver.current.observe(node);
     },
@@ -65,15 +61,19 @@ const SearchedGallery = () => {
           {column1.map((photo: PhotoType, index) => {
             if (column1.length === index + 1) {
               return (
-                <Link key={photo.id} to={`photo/${photo.id}`}>
-                  <Photo photo={photo} ref={lastElementRef} />
-                </Link>
+                <Fragment key={photo.id}>
+                  <Link to={`photo/${photo.id}`} ref={lastElementRef}>
+                    <Photo photo={photo} />
+                  </Link>
+                </Fragment>
               );
             } else {
               return (
-                <Link key={photo.id} to={`photo/${photo.id}`}>
-                  <Photo photo={photo} />
-                </Link>
+                <Fragment key={photo.id}>
+                  <Link to={`photo/${photo.id}`}>
+                    <Photo photo={photo} />
+                  </Link>
+                </Fragment>
               );
             }
           })}
@@ -82,9 +82,11 @@ const SearchedGallery = () => {
         <div className={classes['photos-column']}>
           {column2.map((photo: PhotoType) => {
             return (
-              <Link key={photo.id} to={`photo/${photo.id}`}>
-                <Photo photo={photo} />
-              </Link>
+              <Fragment key={photo.id}>
+                <Link to={`photo/${photo.id}`}>
+                  <Photo photo={photo} />
+                </Link>
+              </Fragment>
             );
           })}
         </div>
@@ -92,9 +94,11 @@ const SearchedGallery = () => {
         <div className={classes['photos-column']}>
           {column3.map((photo: PhotoType) => {
             return (
-              <Link key={photo.id} to={`photo/${photo.id}`}>
-                <Photo photo={photo} />
-              </Link>
+              <Fragment key={photo.id}>
+                <Link to={`photo/${photo.id}`}>
+                  <Photo photo={photo} />
+                </Link>
+              </Fragment>
             );
           })}
         </div>

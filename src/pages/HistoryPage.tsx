@@ -8,6 +8,7 @@ import { useTerms } from '../store/searchStore';
 
 const HistoryPage = () => {
   const resetPage = useStore(useTerms, (state) => state.resetPage);
+  const [showGallery, setShowGallery] = useState<boolean>(true);
   const [selectedTerm, setSelectedTerm] = useState<string>('');
 
   const historyWordHandler = (term: string) => {
@@ -15,14 +16,21 @@ const HistoryPage = () => {
     resetPage();
   };
 
+  const hideHistoryGalleryHandler = () => {
+    setShowGallery(false);
+  };
+
   return (
     <>
       <Outlet />
       <div className={classes.wrapper}>
         <h2>ძებნის ისტორია</h2>
-        <SearchedWords selectHandler={historyWordHandler} />
+        <SearchedWords
+          selectHandler={historyWordHandler}
+          hideGallery={hideHistoryGalleryHandler}
+        />
 
-        <HistoryGallery selectedTerm={selectedTerm} />
+        {showGallery && <HistoryGallery selectedTerm={selectedTerm} />}
       </div>
     </>
   );

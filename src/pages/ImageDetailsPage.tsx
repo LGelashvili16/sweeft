@@ -50,5 +50,4 @@ const ImageDetailsPage = () => {
     </Modal>
   );
 };
-
 export default ImageDetailsPage;
